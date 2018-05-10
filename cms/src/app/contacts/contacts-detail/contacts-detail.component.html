@@ -1,0 +1,20 @@
+<div class="panel">
+  <div class="panel-heading">
+    <h3>{{ Contact.name }}</h3>
+    <img
+      [src]="Contact.imagePath"
+      alt="{{ Contact.name }}"
+      class="img-responsive"
+      style="max-height: 50px;">
+    <a href="#">
+      <button class="btn btn-success">Edit</button>
+    </a>
+    <a href="#">
+      <button class="btn btn-success">Delete</button>
+    </a>
+  </div>
+  <div class="panel-body">
+    <div> Email: {{ Contact.email }}</div>
+    <div> Phone: {{ Contact.phone }}</div>
+  </div>
+</div>
