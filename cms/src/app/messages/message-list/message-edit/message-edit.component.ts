@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, ViewChild, Output} from '@angular/core';
 import {Message} from "../../messages.model";
 
 @Component({
@@ -11,7 +11,7 @@ export class MessageEditComponent implements OnInit {
 
   @ViewChild('subject') subjectRef: ElementRef;
   @ViewChild('msgText') msgTextRef: ElementRef;
-  addMessageEvent = new EventEmitter<Message>();
+  @Output() addMessageEvent = new EventEmitter<Message>();
 
 
   constructor() { }
