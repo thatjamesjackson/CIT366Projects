@@ -7,28 +7,29 @@ import {Message} from "../../messages.model";
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
-  public currentSender:string = "James Jackson";
+  public currentSender: string = "James Jackson";
 
   @ViewChild('subject') subjectRef: ElementRef;
   @ViewChild('msgText') msgTextRef: ElementRef;
   @Output() addMessageEvent = new EventEmitter<Message>();
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  onSendMessage(){
+  onSendMessage() {
     const subjectConst = this.subjectRef.nativeElement.value;
     const msgTextConst = this.msgTextRef.nativeElement.value;
     const newMessage = new Message(1, subjectConst, msgTextConst, this.currentSender);
-  this.addMessageEvent.emit(newMessage);
+    this.addMessageEvent.emit(newMessage);
   }
 
-  onClear(){
-this.subjectRef.nativeElement.value = "";
-this.msgTextRef.nativeElement.value ="";
+  onClear() {
+    this.subjectRef.nativeElement.value = "";
+    this.msgTextRef.nativeElement.value = "";
   }
 
 }

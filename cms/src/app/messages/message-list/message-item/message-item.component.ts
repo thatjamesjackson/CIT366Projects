@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Message} from "../../messages.model";
 
 
@@ -9,9 +9,10 @@ import {Message} from "../../messages.model";
 })
 export class MessageItemComponent implements OnInit {
 
-  @Input() message:Message;
+  @Input() message: Message;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

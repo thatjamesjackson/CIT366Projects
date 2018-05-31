@@ -6,14 +6,12 @@
     </div>
   </div>
   <div class="panel-body">
-<div class="panel-body">
-  <!--<div class="center-pannel"
-    *ngFor="let documentEl of documents"
-    [documents]="documentEl">
-  </div>-->
-</div>
-
+    <div class="center-panel">
+      <app-document-item
+        *ngFor="let documentEl of documents"
+        [document]="documentEl"
+        (documentSelected)="onSelectedDocument(documentEl)"></app-document-item>
+    </div>
   </div>
-
 
 </div>

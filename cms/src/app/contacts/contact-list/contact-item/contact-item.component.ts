@@ -10,12 +10,13 @@ export class ContactItemComponent implements OnInit {
   @Input() contact: Contact;
   @Output() contactSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  onSelected(){
-  this.contactSelected.emit();
+  onSelected() {
+    this.contactSelected.emit();
   }
 }
