@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Document} from "../document.model";
 
-
 @Component({
   selector: 'app-document-detail',
   templateUrl: './document-detail.component.html',
@@ -10,7 +9,6 @@ import {Document} from "../document.model";
 export class DocumentDetailComponent implements OnInit {
 
   @Input() public document: Document;
-
 
   constructor() {
   }

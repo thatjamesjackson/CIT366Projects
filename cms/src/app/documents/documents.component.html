@@ -5,8 +5,7 @@
   </div>
   <div class="col-md-4">
     <app-document-detail
-      *ngIf="selectedDocument; else infotext"
-    [document]="selectedDocument"></app-document-detail>
+      *ngIf="selectedDocument; else infotext"></app-document-detail>
     <ng-template #infotext>
       <p>Please select a document!</p>
     </ng-template>
