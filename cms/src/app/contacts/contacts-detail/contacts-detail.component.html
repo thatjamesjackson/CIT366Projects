@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>{{ contact.name }}
+    <h3>{{ contact?.name }}
       <a href="#">
         <button class="pull-right btn btn-danger">Delete</button>
       </a>
@@ -10,14 +10,14 @@
 
     </h3>
     <img
-      [src]="contact.imageUrl"
-      alt="{{ contact.name }}"
+      [src]="contact?.imageUrl"
+      alt="{{ contact?.name }}"
       class="img-responsive"
       style="max-height: 50px;">
 
   </div>
   <div class="panel-body">
-    <div> Email: {{ contact.email }}</div>
-    <div> Phone: {{ contact.phone }}</div>
+    <div> Email: {{ contact?.email }}</div>
+    <div> Phone: {{ contact?.phone }}</div>
   </div>
 </div>
