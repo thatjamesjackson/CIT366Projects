@@ -4,8 +4,9 @@ import {MOCKDOCUMENTS} from "./MOCKDOCUMENTS";
 
 @Injectable()
 export class DocumentsService {
-  documents:Document[] = [];
+  documents: Document[] = [];
   documentSelectedEvent = new EventEmitter<Document>();
+  documentChangedEvent = new EventEmitter<Document[]>();
 
   constructor() {
     this.documents = MOCKDOCUMENTS;
@@ -15,9 +16,22 @@ export class DocumentsService {
     return this.documents.slice();
   }
 
-  getDocument(id: string):Document {
+  deleteDocument(document: Document) {
+    if (document === null) {
+      return
+    }
+    const pos = this.documents.indexOf(document);
+    if (pos < 0) {
+      return
+    }
+
+    this.documents.splice(pos, 1);
+    this.documentChangedEvent.emit(this.documents.slice());
+  }
+
+  getDocument(id: number): Document {
     for (let doc of this.documents) {
-      if (doc.id === id) {
+      if (+doc.id === id) {
         return doc;
       }
     }

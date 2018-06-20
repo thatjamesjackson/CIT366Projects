@@ -1,10 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3>{{ contact?.name }}
-      <a href="#">
+      <a (click)="onDelete()">
         <button class="pull-right btn btn-danger">Delete</button>
       </a>
-      <a href="#">
+      <a (click)="editContact()">
         <button class="btn btn-primary pull-right">Edit</button>
       </a>
 

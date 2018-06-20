@@ -9,6 +9,7 @@ import {ContactsService} from "../../contacts.service";
 })
 export class ContactItemComponent implements OnInit {
   @Input() contact: Contact;
+
   constructor(private contactsService: ContactsService) {
   }
 

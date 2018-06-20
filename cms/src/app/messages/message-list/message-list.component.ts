@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Message} from "../message.model";
 import {MessagesService} from "../messages.service";
-import {Document} from "../../documents/document.model";
 
 @Component({
   selector: 'app-message-list',
