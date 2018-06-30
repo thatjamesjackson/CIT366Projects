@@ -9,6 +9,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
+    // noinspection JSIgnoredPromiseFromCall
     expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

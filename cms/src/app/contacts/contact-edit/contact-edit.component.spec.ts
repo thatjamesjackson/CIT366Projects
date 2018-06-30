@@ -20,6 +20,7 @@ describe('ContactEditComponent', () => {
   });
 
   it('should create', () => {
+    // noinspection JSIgnoredPromiseFromCall
     expect(component).toBeTruthy();
   });
 });

@@ -20,6 +20,7 @@ describe('ContactItemComponent', () => {
   });
 
   it('should create', () => {
+    // noinspection JSIgnoredPromiseFromCall
     expect(component).toBeTruthy();
   });
 });
