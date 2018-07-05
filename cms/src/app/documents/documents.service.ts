@@ -94,7 +94,7 @@ export class DocumentsService {
       return;
     }
 
-    this.documents = this.documents.splice(pos, 1);
+    this.documents.splice(pos, 1);
     const documentsListClone = this.documents.slice();
     this.documentListChangedEvent.next(documentsListClone);
 
