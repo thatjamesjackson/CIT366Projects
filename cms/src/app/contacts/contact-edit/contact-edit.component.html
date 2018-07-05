@@ -23,7 +23,7 @@
             #email="ngModel"
             name="email"
             required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
             type="text"
             id="email"
             class="form-control required"
@@ -39,7 +39,7 @@
             [ngModel]="oldContact?.phone"
             #phone="ngModel"
             name="phone"
-            pattern=“\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*"
+            pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*"
             type="text"
             id="phone"
             class="form-control invalid"

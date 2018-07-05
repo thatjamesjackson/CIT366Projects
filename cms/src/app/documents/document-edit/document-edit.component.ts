@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
-import {Subscription} from "rxjs/internal/Subscription";
+
 
 import {DocumentsService} from "../documents.service";
 import {Document} from "../document.model";
@@ -47,14 +47,14 @@ export class DocumentEditComponent implements OnInit {
   onSubmit(form: NgForm) {
     const value = form.value;
 
-    const newDocument = new Document("1", value.name, value.url, null);
+    this.document = new Document("1", value.name, value.url, null);
 
     if (this.editMode) {
       this.documentsService.updateDocument(this.oldDocument, this.document);
     } else {
       this.documentsService.addDocument(this.document);
-      this.router.navigate(['/documents']);
     }
+    this.router.navigate(['/documents']);
   }
 
   onCancel() {

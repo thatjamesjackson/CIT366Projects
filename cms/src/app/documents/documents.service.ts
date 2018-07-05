@@ -66,18 +66,18 @@ export class DocumentsService {
     this.documentListChangedEvent.next(documentsListClone);
   }
 
-  updateDocument(originalDocument: Document,
+  updateDocument(oldDocument: Document,
                  newDocument: Document) {
-    if (originalDocument == null) {
+    if (oldDocument == null) {
       return
     }
 
-    const pos = this.documents.indexOf(originalDocument);
+    const pos = this.documents.indexOf(oldDocument);
     if (pos < 0) {
       return
     }
 
-    newDocument.id = originalDocument.id;
+    newDocument.id = oldDocument.id;
     this.documents[pos] = newDocument;
     const documentsListClone = this.documents.slice();
     this.documentListChangedEvent.next(documentsListClone);

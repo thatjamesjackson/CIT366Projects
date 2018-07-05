@@ -34,6 +34,7 @@ export class ContactEditComponent implements OnInit {
           }
 
           const originalContact = this.contactService.getContact(id);
+          this.oldContact = originalContact;
           if (originalContact == null) {
             return;
           }

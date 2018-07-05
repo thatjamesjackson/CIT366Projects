@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3> Contacts
       <a routerLink="/new">
-        <button class="btn btn-success pull-right">New Contact</button>
+        <button class="btn btn-success pull-right" routerLink="/contact/new">New Contact</button>
       </a>
     </h3>
 
@@ -15,7 +15,7 @@
     <div class="col-xs-12">
       <app-contact-item
         *ngFor="let contact of contacts" [contact]="contact"
-      dnd-draggable [dragEnabled]="true" [dragData]="contact" [dropzones]="['contactGroup']"></app-contact-item>
+      dnd-draggable [dragEnabled]="true" [dragData]="contact" [dropZones]="['contactGroup']"></app-contact-item>
 
     </div>
   </div>
