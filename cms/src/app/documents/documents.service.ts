@@ -2,6 +2,8 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Document} from "./document.model";
 import {MOCKDOCUMENTS} from "./MOCKDOCUMENTS";
 import {Subject} from "rxjs/internal/Subject";
+import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
+
 
 @Injectable()
 export class DocumentsService {
@@ -11,15 +13,40 @@ export class DocumentsService {
   documentListChangedEvent = new Subject<Document[]>();
   maxDocumentsId: number;
 
-  constructor() {
-    this.documents = MOCKDOCUMENTS;
+  constructor(private http:HttpClient) {
+    //this.documents = MOCKDOCUMENTS;
     this.maxDocumentsId = this.getMaxId();
   }
 
   getDocuments(): Document[] {
+    this.http.get("https://cit366-f06df.firebaseio.com/documents.json")
+      .subscribe(
+        //success function
+        (documents: Document[] ) => {
+          this.documents = documents;
+          this.maxDocumentsId = this.getMaxId();
+          //documents = documents.sort();
+          this.documentListChangedEvent.next(this.documents.slice())
+        },
+        //error
+      (error: any) => {
+          console.log(error);
+    }
+      )
     return this.documents.slice();
   }
-
+storeDocuments(){
+    let toServerString = JSON.stringify(this.documents);
+  let header = new HttpHeaders({
+    "Content-Type":"application/json"
+  });
+  this.http.put("https://cit366-f06df.firebaseio.com/documents.json", toServerString, {headers:header})
+    .subscribe(
+      ()=>{
+        this.documentListChangedEvent.next(this.documents.slice())
+      }
+    )
+}
   oldDeleteDocument(document: Document) {
     if (document === null) {
       return
@@ -63,7 +90,7 @@ export class DocumentsService {
     newDocument.id = String(this.maxDocumentsId);
     this.documents.push(newDocument);
     const documentsListClone = this.documents.slice();
-    this.documentListChangedEvent.next(documentsListClone);
+    this.storeDocuments();
   }
 
   updateDocument(oldDocument: Document,
@@ -80,8 +107,7 @@ export class DocumentsService {
     newDocument.id = oldDocument.id;
     this.documents[pos] = newDocument;
     const documentsListClone = this.documents.slice();
-    this.documentListChangedEvent.next(documentsListClone);
-
+    this.storeDocuments();
   }
 
   deleteDocument(document: Document) {
@@ -96,7 +122,6 @@ export class DocumentsService {
 
     this.documents.splice(pos, 1);
     const documentsListClone = this.documents.slice();
-    this.documentListChangedEvent.next(documentsListClone);
-
+    this.storeDocuments();
   }
 }

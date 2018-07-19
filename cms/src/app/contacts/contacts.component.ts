@@ -6,7 +6,7 @@ import {ContactsService} from "./contacts.service";
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css'],
-  providers: [ContactsService]
+
 })
 export class ContactsComponent implements OnInit {
   selectedContact: Contact;
@@ -15,12 +15,7 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contactsService.contactSelected
-      .subscribe(
-        (contact: Contact) => {
-          this.selectedContact = contact;
-        }
-      )
+
   }
 
 }
